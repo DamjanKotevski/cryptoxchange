@@ -10,28 +10,28 @@ function PortfolioPage() {
     }, []);
 
     async function loadPortfolio() {
-        const userId = localStorage.getItem("loggedUserId");
+    const userId = localStorage.getItem("loggedUserId");
 
-        if (!userId) {
-            setMessage("Please login to view your portfolio.");
-            return;
-        }
-
-        try {
-            const response = await axios.get(
-                `http://localhost:3000/api/portfolio/user/${userId}`
-            );
-
-            setPortfolio(response.data);
-        } catch (error) {
-            setMessage("Error loading portfolio.");
-        }
+    if (!userId) {
+        setMessage("Please login to view your portfolio.");
+        return;
     }
+
+    try {
+        const response = await axios.get(
+            `https://cryptoxchange.onrender.com/api/portfolio/${userId}`
+        );
+
+        setPortfolio(response.data);
+    } catch (error) {
+        setMessage("Error loading portfolio.");
+    }
+}
 
     async function deletePortfolioItem(id) {
         try {
             await axios.delete(
-                `http://localhost:3000/api/portfolio/${id}`
+                `https://cryptoxchange.onrender.com/api/portfolio/${id}`
             );
 
             setMessage("Portfolio item deleted successfully.");

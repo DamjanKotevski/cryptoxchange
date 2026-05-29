@@ -19,7 +19,7 @@ function HistoryPage() {
     async function loadHistory() {
         try {
             const response = await axios.get(
-    "http://localhost:3000/api/activity-logs",
+    "https://cryptoxchange.onrender.com/api/activity-logs",
     {
         headers: {
             Authorization:

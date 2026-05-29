@@ -15,7 +15,7 @@ function FeedbackPage() {
     async function loadFeedback() {
         try {
             const response = await axios.get(
-                "http://localhost:3000/api/feedback"
+                "https://cryptoxchange.onrender.com/api/feedback"
             );
 
             setFeedback(response.data);
@@ -41,7 +41,7 @@ if (!validators.rating.test(String(rating))) {
 
         try {
             await axios.post(
-                "http://localhost:3000/api/feedback",
+                "https://cryptoxchange.onrender.com/api/feedback",
                 {
                     user: userId,
                     message: message,

@@ -38,7 +38,7 @@ if (!validators.role.test(role)) {
         try {
 
             await axios.post(
-                "http://localhost:3000/api/users/register",
+                "https://cryptoxchange.onrender.com/api/users/register",
                 {
                     name,
                     email,

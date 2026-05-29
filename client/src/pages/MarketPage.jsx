@@ -69,7 +69,7 @@ function MarketPage() {
         try {
 
             const response = await axios.post(
-                "http://localhost:3000/api/portfolio",
+                "https://cryptoxchange.onrender.com/api/portfolio",
                 {
                     user: userId,
                     coinName: selectedCoin.name,

@@ -10,7 +10,7 @@ function DbPage() {
     async function seedDatabase() {
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/db/seed",
+                "https://cryptoxchange.onrender.com/api/db/seed",
                 {},
                 {
                     headers: {
@@ -31,7 +31,7 @@ function DbPage() {
     async function clearDatabase() {
         try {
             const response = await axios.delete(
-                "http://localhost:3000/api/db/clear",
+                "https://cryptoxchange.onrender.com/api/db/clear",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
