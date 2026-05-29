@@ -19,9 +19,8 @@ function PortfolioPage() {
 
     try {
         const response = await axios.get(
-            `https://cryptoxchange.onrender.com/api/portfolio/${userId}`
-        );
-
+    `https://cryptoxchange.onrender.com/api/portfolio/user/${userId}`
+);
         setPortfolio(response.data);
     } catch (error) {
         setMessage("Error loading portfolio.");
