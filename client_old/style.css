@@ -1,0 +1,154 @@
+body {
+    background: radial-gradient(circle at top, #14213d, #020617 60%);
+    color: #e5e7eb;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(2, 6, 23, 0.95) !important;
+    border-bottom: 1px solid #00f5d4;
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.25);
+}
+
+.navbar-brand {
+    color: #00f5d4 !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: #cbd5e1 !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #00f5d4 !important;
+}
+
+.card {
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    border: 1px solid rgba(0, 245, 212, 0.25);
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(0, 245, 212, 0.12);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+    box-shadow: 0 0 35px rgba(0, 245, 212, 0.25);
+}
+
+.page-title {
+    color: #00f5d4;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(0, 245, 212, 0.5);
+}
+
+.btn {
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #00f5d4, #00bbf9);
+    border: none;
+    color: #020617;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #00bbf9, #00f5d4);
+    color: #020617;
+}
+
+.btn-success {
+    background: linear-gradient(90deg, #00ff88, #00f5d4);
+    border: none;
+    color: #020617;
+}
+
+.btn-warning {
+    background: linear-gradient(90deg, #facc15, #fb923c);
+    border: none;
+    color: #020617;
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #ff4d6d, #ff006e);
+    border: none;
+}
+
+.btn-dark {
+    background: #111827;
+    border: 1px solid #00f5d4;
+}
+
+.table {
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+.table th {
+    background: #020617 !important;
+    color: #00f5d4;
+}
+
+.table td {
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb;
+}
+
+.form-control,
+.form-select,
+textarea {
+    background-color: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    background-color: #020617;
+    color: #ffffff;
+    border-color: #00f5d4;
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+}
+
+.auth-box {
+    max-width: 450px;
+    margin: 80px auto;
+}
+
+.crypto-logo {
+    width: 45px;
+    height: 45px;
+    filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.6));
+}
+
+.alert-info {
+    background: rgba(0, 187, 249, 0.15);
+    color: #dbeafe;
+    border: 1px solid #00bbf9;
+}
+
+.list-group-item {
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+a {
+    color: #00f5d4;
+}
+
+a:hover {
+    color: #00bbf9;
+}

@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+
+  web:
+
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./server:/app/server
+      - ./client:/app/client
+      - /app/server/node_modules
+
+    working_dir: /app/server
+
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASS=${EMAIL_PASS}
+
+    depends_on:
+      - mongo
+
+    restart: always
+
+  mongo:
+
+    image: mongo:7
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongo_data:/data/db
+
+    restart: always
+
+volumes:
+  mongo_data:
