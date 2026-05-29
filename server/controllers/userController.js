@@ -81,6 +81,65 @@ exports.registerUser = async (req, res) => {
     }
 };
 
+exports.loginUser = async (req, res) => {
+    try {
+        if (!req.body.email || !req.body.password) {
+            return res.status(400).json({
+                message: "Email and password are required."
+            });
+        }
+
+        const user = await User.findOne({
+            email: req.body.email
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found."
+            });
+        }
+
+        const isMatch = await bcrypt.compare(
+            req.body.password,
+            user.password
+        );
+
+        if (!isMatch) {
+            return res.status(401).json({
+                message: "Invalid password."
+            });
+        }
+
+        const token = jwt.sign(
+            {
+                id: user._id,
+                role: user.role
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "1h"
+            }
+        );
+
+        res.status(200).json({
+            message: "Login successful",
+            token: token,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Error logging in",
+            error: error.message
+        });
+    }
+};
+
 exports.getAllUsers = async (req, res) => {
     try {
         const users = await User.find().select("-password");
