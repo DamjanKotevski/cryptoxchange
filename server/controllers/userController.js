@@ -58,11 +58,27 @@ console.log("REGISTER EMAIL:", req.body.email);
 
         const savedUser = await newUser.save();
 
-       try {
-    await sendRegistrationEmail(savedUser.email, savedUser.name);
+try {
+    await sendRegistrationEmail(
+        savedUser.email,
+        savedUser.name
+    );
 } catch (emailError) {
-    console.log("Email sending failed, but user was registered:", emailError.message);
+    console.log(
+        "Email sending failed, but user was registered:",
+        emailError.message
+    );
 }
+
+res.status(201).json({
+    message: "User registered successfully",
+    user: {
+        id: savedUser._id,
+        name: savedUser.name,
+        email: savedUser.email,
+        role: savedUser.role
+    }
+})
 
         res.status(201).json({
             message: "User registered successfully",
