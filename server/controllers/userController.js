@@ -29,9 +29,6 @@ exports.registerUser = async (req, res) => {
             });
         }
 
-        console.log("REGISTER BODY:", req.body);
-console.log("REGISTER EMAIL:", req.body.email);
-
         const existingUser = await User.findOne({
             email: req.body.email
         });
@@ -41,8 +38,6 @@ console.log("REGISTER EMAIL:", req.body.email);
                 message: "User with this email already exists."
             });
         }
-
-        console.log("EXISTING USER:", existingUser);
 
         const hashedPassword = await bcrypt.hash(
             req.body.password,
@@ -58,25 +53,15 @@ console.log("REGISTER EMAIL:", req.body.email);
 
         const savedUser = await newUser.save();
 
-sendRegistrationEmail(
-    savedUser.email,
-    savedUser.name
-).catch((emailError) => {
-    console.log(
-        "Email sending failed, but user was registered:",
-        emailError.message
-    );
-});
-
-res.status(201).json({
-    message: "User registered successfully",
-    user: {
-        id: savedUser._id,
-        name: savedUser.name,
-        email: savedUser.email,
-        role: savedUser.role
-    }
-})
+        sendRegistrationEmail(
+            savedUser.email,
+            savedUser.name
+        ).catch((emailError) => {
+            console.log(
+                "Email sending failed, but user was registered:",
+                emailError.message
+            );
+        });
 
         res.status(201).json({
             message: "User registered successfully",
@@ -95,7 +80,6 @@ res.status(201).json({
         });
     }
 };
-
 
 exports.getAllUsers = async (req, res) => {
     try {
