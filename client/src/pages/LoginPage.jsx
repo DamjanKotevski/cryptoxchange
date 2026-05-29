@@ -61,7 +61,7 @@ if (!validators.password.test(password)) {
 
             navigate("/dashboard");
 
-            window.location.reload();
+            
 
         } catch (error) {
 
