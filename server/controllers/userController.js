@@ -57,7 +57,7 @@ exports.registerUser = async (req, res) => {
         
 
 await ActivityLog.create({
-    user: savedUser.name,
+    user: savedUser._id,
     action: "REGISTER",
     details: `New user registered with email ${savedUser.email}`
 });
