@@ -121,6 +121,12 @@ exports.loginUser = async (req, res) => {
             });
         }
 
+        await ActivityLog.create({
+    user: user._id,
+    action: "LOGIN",
+    details: "User logged in successfully"
+});
+
         const token = jwt.sign(
             {
                 id: user._id,
