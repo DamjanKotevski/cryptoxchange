@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
+const ActivityLog = require("../models/ActivityLog");
 
 function validateUserData(data) {
     if (!data.name || !data.email || !data.password) {
@@ -53,15 +54,25 @@ exports.registerUser = async (req, res) => {
 
         const savedUser = await newUser.save();
 
-        sendRegistrationEmail(
-            savedUser.email,
-            savedUser.name
-        ).catch((emailError) => {
-            console.log(
-                "Email sending failed, but user was registered:",
-                emailError.message
-            );
-        });
+        
+
+await ActivityLog.create({
+    user: savedUser.name,
+    action: "REGISTER",
+    details: `New user registered with email ${savedUser.email}`
+});
+
+sendRegistrationEmail(
+    savedUser.email,
+    savedUser.name
+).catch((emailError) => {
+    console.log(
+        "Email sending failed, but user was registered:",
+        emailError.message
+    );
+});
+
+       
 
         res.status(201).json({
             message: "User registered successfully",
