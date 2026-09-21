@@ -604,3 +604,82 @@
         gap: 8px;
     }
 }
+
+
+/* =========================
+   MARKET PAGINATION
+========================= */
+
+.pagination {
+    gap: 7px;
+    margin-bottom: 0;
+}
+
+.pagination .page-item .page-link {
+    min-width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 14px;
+
+    background: rgba(8, 20, 40, 0.95);
+    color: #9aa9bd;
+
+    border: 1px solid rgba(0, 245, 212, 0.18);
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+
+    box-shadow: none;
+}
+
+/* Hover */
+
+.pagination .page-item:not(.disabled) .page-link:hover {
+    background: rgba(0, 245, 212, 0.1);
+    color: #00f5d4;
+
+    border-color: rgba(0, 245, 212, 0.55);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 245, 212, 0.08);
+}
+
+/* Active page */
+
+.pagination .page-item.active .page-link {
+    background: #00f5d4;
+    color: #03101c;
+
+    border-color: #00f5d4;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 212, 0.25);
+}
+
+/* Disabled Previous / Next */
+
+.pagination .page-item.disabled .page-link {
+    background: rgba(8, 20, 40, 0.55);
+    color: #46546a;
+
+    border-color: rgba(255, 255, 255, 0.05);
+
+    cursor: not-allowed;
+}
+
+/* Remove Bootstrap focus outline */
+
+.pagination .page-link:focus {
+    box-shadow: none;
+}
