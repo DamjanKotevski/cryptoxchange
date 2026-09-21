@@ -182,3 +182,425 @@
     border-right-color: var(--border);
   }
 }
+
+
+
+/* =========================
+   MODERN CRYPTO NAVBAR
+========================= */
+
+.crypto-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(3, 10, 27, 0.96);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 255, 220, 0.25);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        0 1px 0 rgba(0, 255, 220, 0.08);
+}
+
+.crypto-navbar-container {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* BRAND */
+
+.crypto-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    white-space: nowrap;
+}
+
+.brand-icon {
+    color: #00f5d4;
+
+    font-size: 18px;
+
+    text-shadow:
+        0 0 12px rgba(0, 245, 212, 0.8);
+}
+
+.brand-highlight {
+    color: #00f5d4;
+}
+
+
+/* NAVIGATION */
+
+.crypto-nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    flex: 1;
+    justify-content: center;
+}
+
+.crypto-nav-links .nav-link {
+    position: relative;
+
+    padding: 27px 10px 24px;
+
+    color: #aeb9cc;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.crypto-nav-links .nav-link:hover {
+    color: white;
+}
+
+.crypto-nav-links .nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 17px;
+
+    width: 0;
+    height: 2px;
+
+    background: #00f5d4;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    transition: width 0.25s ease;
+
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.8);
+}
+
+.crypto-nav-links .nav-link:hover::after {
+    width: 45%;
+}
+
+.crypto-nav-links .active-link {
+    color: #00f5d4;
+}
+
+.crypto-nav-links .active-link::after {
+    width: 45%;
+}
+
+
+/* USER SECTION */
+
+.navbar-user-area {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    white-space: nowrap;
+}
+
+.role-badge {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.admin-role {
+    color: #00f5d4;
+
+    background: rgba(0, 245, 212, 0.1);
+
+    border: 1px solid rgba(0, 245, 212, 0.35);
+}
+
+.user-role {
+    color: #7ea6ff;
+
+    background: rgba(80, 120, 255, 0.1);
+
+    border: 1px solid rgba(80, 120, 255, 0.3);
+}
+
+
+/* USER */
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #00f5d4,
+        #00a8ff
+    );
+
+    color: #03101c;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 15px rgba(0, 245, 212, 0.25);
+}
+
+.username {
+    color: #e8edf5;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* LOGOUT */
+
+.logout-button {
+    padding: 7px 14px;
+
+    border: 1px solid rgba(255, 77, 97, 0.4);
+    border-radius: 8px;
+
+    background: rgba(255, 77, 97, 0.08);
+
+    color: #ff6577;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.logout-button:hover {
+    background: #ff4d61;
+
+    border-color: #ff4d61;
+
+    color: white;
+
+    box-shadow:
+        0 0 18px rgba(255, 77, 97, 0.25);
+
+    transform: translateY(-1px);
+}
+
+
+/* LOGIN / REGISTER */
+
+.auth-links {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.auth-links .nav-link {
+    color: #aeb9cc;
+    text-decoration: none;
+}
+
+.register-button {
+    padding: 7px 14px;
+
+    border-radius: 8px;
+
+    background: #00f5d4;
+
+    color: #03101c;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+.register-button:hover {
+    background: #20ffe1;
+
+    box-shadow:
+        0 0 18px rgba(0, 245, 212, 0.3);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+
+    .crypto-navbar-container {
+        gap: 15px;
+    }
+
+    .crypto-nav-links {
+        gap: 0;
+    }
+
+    .crypto-nav-links .nav-link {
+        padding-left: 7px;
+        padding-right: 7px;
+
+        font-size: 13px;
+    }
+
+    .username {
+        display: none;
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.crypto-footer {
+    margin-top: 80px;
+    padding: 45px 0 20px;
+
+    background: rgba(3, 10, 27, 0.98);
+
+    border-top: 1px solid rgba(0, 245, 212, 0.2);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding-bottom: 30px;
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: #00f5d4;
+}
+
+.footer-brand p {
+    margin: 0;
+
+    color: #7f8ba3;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #8f9bad;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #00f5d4;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #5f6b80;
+
+    font-size: 12px;
+}
+
+.footer-project {
+    color: #738097;
+}
+
+@media (max-width: 768px) {
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+}

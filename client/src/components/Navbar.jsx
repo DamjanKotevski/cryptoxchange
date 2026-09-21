@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
     const navigate = useNavigate();
@@ -11,83 +11,112 @@ function Navbar() {
         localStorage.removeItem("loggedEmail");
         localStorage.removeItem("loggedRole");
         localStorage.removeItem("loggedUserId");
+        localStorage.removeItem("token");
 
         navigate("/login");
         window.location.reload();
     }
 
+    const navClass = ({ isActive }) =>
+        isActive ? "nav-link active-link" : "nav-link";
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container">
-                <Link className="navbar-brand" to="/dashboard">
-                    CryptoXchange
+        <nav className="crypto-navbar">
+            <div className="container crypto-navbar-container">
+
+                {/* LOGO */}
+                <Link className="crypto-brand" to="/dashboard">
+                    <span className="brand-icon">◆</span>
+
+                    <span>
+                        Crypto<span className="brand-highlight">Xchange</span>
+                    </span>
                 </Link>
 
-                <div className="navbar-nav ms-auto align-items-center">
-                    <span className="badge bg-secondary me-3">
-                        {role || "Guest"}
-                    </span>
+                {/* NAVIGATION */}
+                <div className="crypto-nav-links">
 
-                    <Link className="nav-link" to="/dashboard">
+                    <NavLink className={navClass} to="/dashboard">
                         Dashboard
-                    </Link>
+                    </NavLink>
 
-                    <Link className="nav-link" to="/market">
-                        Market API
-                    </Link>
+                    <NavLink className={navClass} to="/market">
+                        Market
+                    </NavLink>
 
-                    <Link className="nav-link" to="/search">
+                    <NavLink className={navClass} to="/search">
                         Search
-                    </Link>
+                    </NavLink>
 
-                    <Link className="nav-link" to="/portfolio">
-                        My Portfolio
-                    </Link>
+                    <NavLink className={navClass} to="/portfolio">
+                        Portfolio
+                    </NavLink>
 
-                    <Link className="nav-link" to="/report">
-                        Report
-                    </Link>
+                    <NavLink className={navClass} to="/report">
+                        Reports
+                    </NavLink>
 
-                    <Link className="nav-link" to="/feedback">
+                    <NavLink className={navClass} to="/feedback">
                         Feedback
-                    </Link>
+                    </NavLink>
 
                     {role === "Admin" && (
                         <>
-                            <Link className="nav-link" to="/history">
+                            <NavLink className={navClass} to="/history">
                                 History
-                            </Link>
+                            </NavLink>
 
-                            <Link className="nav-link" to="/db">
-                                DB
-                            </Link>
+                            <NavLink className={navClass} to="/db">
+                                Database
+                            </NavLink>
                         </>
                     )}
 
+                </div>
+
+                {/* USER AREA */}
+                <div className="navbar-user-area">
+
+                    <span
+                        className={
+                            role === "Admin"
+                                ? "role-badge admin-role"
+                                : "role-badge user-role"
+                        }
+                    >
+                        {role || "Guest"}
+                    </span>
+
                     {user ? (
                         <>
-                            <span className="text-info ms-3 me-2">
-                                {user}
-                            </span>
+                            <div className="navbar-user">
+    <span className="username">
+        {user}
+    </span>
+</div>
 
                             <button
-                                className="btn btn-danger btn-sm"
+                                className="logout-button"
                                 onClick={logout}
                             >
                                 Logout
                             </button>
                         </>
                     ) : (
-                        <>
-                            <Link className="nav-link" to="/login">
+                        <div className="auth-links">
+                            <NavLink className={navClass} to="/login">
                                 Login
-                            </Link>
+                            </NavLink>
 
-                            <Link className="nav-link" to="/register">
+                            <NavLink
+                                className="register-button"
+                                to="/register"
+                            >
                                 Register
-                            </Link>
-                        </>
+                            </NavLink>
+                        </div>
                     )}
+
                 </div>
             </div>
         </nav>

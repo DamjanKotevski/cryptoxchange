@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
@@ -13,6 +15,7 @@ import SearchPage from "./pages/SearchPage";
 import ReportPage from "./pages/ReportPage";
 import DbPage from "./pages/DbPage";
 import CryptoDetailsPage from "./pages/CryptoDetailsPage";
+
 function App() {
     return (
         <>
@@ -20,31 +23,71 @@ function App() {
 
             <div className="container mt-4">
                 <Routes>
-                    <Route path="/" element={<Navigate to="/dashboard" />} />
 
-                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route
+                        path="/"
+                        element={<Navigate to="/dashboard" />}
+                    />
 
-                    <Route path="/login" element={<LoginPage />} />
+                    <Route
+                        path="/dashboard"
+                        element={<DashboardPage />}
+                    />
 
-                    <Route path="/register" element={<RegisterPage />} />
+                    <Route
+                        path="/login"
+                        element={<LoginPage />}
+                    />
 
-                    <Route path="/market" element={<MarketPage />} />
+                    <Route
+                        path="/register"
+                        element={<RegisterPage />}
+                    />
 
-                    <Route path="/portfolio" element={<PortfolioPage />} />
+                    <Route
+                        path="/market"
+                        element={<MarketPage />}
+                    />
 
-                    <Route path="/feedback" element={<FeedbackPage />} />
+                    <Route
+                        path="/portfolio"
+                        element={<PortfolioPage />}
+                    />
 
-                    <Route path="/history" element={<HistoryPage />} />
+                    <Route
+                        path="/feedback"
+                        element={<FeedbackPage />}
+                    />
 
-                    <Route path="/search" element={<SearchPage />} />
+                    <Route
+                        path="/history"
+                        element={<HistoryPage />}
+                    />
 
-                    <Route path="/report" element={<ReportPage />} />
+                    <Route
+                        path="/search"
+                        element={<SearchPage />}
+                    />
 
-                    <Route path="/db" element={<DbPage />} />
-                    
-                    <Route path="/crypto/:coinId" element={<CryptoDetailsPage />} />
+                    <Route
+                        path="/report"
+                        element={<ReportPage />}
+                    />
+
+                    <Route
+                        path="/db"
+                        element={<DbPage />}
+                    />
+
+                    <Route
+                        path="/crypto/:coinId"
+                        element={<CryptoDetailsPage />}
+                    />
+
                 </Routes>
             </div>
+
+            <Footer />
         </>
     );
 }
